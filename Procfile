@@ -1,1 +1,1 @@
-web: gunicorn dataMiningFinals:app
+web: uwsgi uwsgi.ini
