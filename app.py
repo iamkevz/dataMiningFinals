@@ -2,9 +2,6 @@ import pandas as pd
 from flask import Flask
 from flask import render_template
 import folium
-import pandas
-from branca.element import Figure
-from processdata import clean
 app = Flask(__name__)
 
 
