@@ -1,1 +1,1 @@
-web: gunicorn dataMiningFinals:app
+web: gunicorn flaskProject:app
