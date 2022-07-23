@@ -5,11 +5,6 @@ from flask import Flask
 from flask import render_template
 import folium
 import pandas as pd
-import matplotlib.pyplot as plt
-from io import BytesIO
-import base64
-
-from folium.plugins import FastMarkerCluster
 
 
 app = Flask(__name__)
@@ -42,22 +37,7 @@ def convertToList(file):
     list = tweet[['category', 'lat', 'long', 'address']].values.tolist()
     return list
 
-def showPlot():
-    df = pd.read_csv("Jupyter/Jupyter/Datasets/dataset_with_goods.csv")
 
-    cities = ['abuyog leyte', 'capiz', 'dumarao capiz', 'iloilo', 'ajuy iloilo',
-              'leyte leyte', 'pilar leyte', 'tanauan leyte', 'samar', 'guiuan samar']
-
-    location = df[df["loc_name"].isin(cities)]
-    df_loc = location
-    df_loc["loc_name"].unique()
-
-    s = df_loc.groupby(['loc_name', 'people_needs']).size().unstack()
-    s.plot(kind='bar', stacked=True, figsize=(9, 7))
-
-    plt.title("10 Cities and what are the People Needs in that City")
-    plt.xlabel("Cities")
-    plt.savefig('templates/plot.png')
 
 
 if __name__ == '__main__':
